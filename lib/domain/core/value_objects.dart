@@ -1,11 +1,16 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
+import 'errors.dart';
 import 'failures.dart';
 
 @immutable
 abstract class ValueObject<T> {
   const ValueObject();
+
+  T getOrCrash() {
+    return value.fold((f) => throw UnexpectedValueError(f), id);
+  }
 
   Either<ValueFailure<T>, T> get value;
 
