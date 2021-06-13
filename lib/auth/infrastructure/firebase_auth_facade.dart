@@ -1,12 +1,13 @@
-import 'package:arch_flutter_ddd/domain/auth/auth_failure.dart';
-import 'package:arch_flutter_ddd/domain/auth/i_auth_facade.dart';
-import 'package:arch_flutter_ddd/domain/auth/value_objects.dart';
+import 'package:arch_flutter_ddd/auth/domain/auth_failure.dart';
+import 'package:arch_flutter_ddd/auth/domain/i_auth_facade.dart';
+import 'package:arch_flutter_ddd/auth/domain/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:meta/meta.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
@@ -15,8 +16,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {@required EmailAddress emailAddress,
-      @required Password password}) async {
+      {required EmailAddress emailAddress, required Password password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
@@ -35,8 +35,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
-      {@required EmailAddress emailAddress,
-      @required Password password}) async {
+      {required EmailAddress emailAddress, required Password password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
@@ -63,7 +62,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
 
       final googleAuthentication = await googleUser.authentication;
-      final authCredential = GoogleAuthProvider.getCredential(
+      final authCredential = GoogleAuthProvider.credential(
           idToken: googleAuthentication.idToken,
           accessToken: googleAuthentication.accessToken);
 
@@ -71,7 +70,7 @@ class FirebaseAuthFacade implements IAuthFacade {
           .signInWithCredential(authCredential)
           .then((value) => right(unit));
     } on PlatformException catch (_) {
-      return left(AuthFailure.serverError());
+      return left(const AuthFailure.serverError());
     }
   }
 }

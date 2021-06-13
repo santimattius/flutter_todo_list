@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "231329791914",
+    "project_id": "note-app-7d8c4",
+    "storage_bucket": "note-app-7d8c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231329791914:android:c391a7923ebc55bfecb5d3",
+        "android_client_info": {
+          "package_name": "com.santimattius.notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231329791914-7fcr2nmvptcresu1qf2bu5k0n9jfhf4d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.santimattius.notes",
+            "certificate_hash": "1c306c4ef614c6aa2c3b1e86709f43b48f60cc89"
+          }
+        },
+        {
+          "client_id": "231329791914-nvanf6m8l9lf8kpuorpsga050fl45s3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrhc1C1SZxz7BcTNXpjiC7ZAUOajkA9DQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231329791914-nvanf6m8l9lf8kpuorpsga050fl45s3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

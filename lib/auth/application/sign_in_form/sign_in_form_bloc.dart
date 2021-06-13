@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:arch_flutter_ddd/domain/auth/auth_failure.dart';
-import 'package:arch_flutter_ddd/domain/auth/i_auth_facade.dart';
-import 'package:arch_flutter_ddd/domain/auth/value_objects.dart';
+import 'package:arch_flutter_ddd/auth/domain/auth_failure.dart';
+import 'package:arch_flutter_ddd/auth/domain/i_auth_facade.dart';
+import 'package:arch_flutter_ddd/auth/domain/value_objects.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
@@ -14,13 +15,11 @@ part 'sign_in_form_event.dart';
 
 part 'sign_in_form_state.dart';
 
+@injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
 
-  SignInFormBloc(this._authFacade);
-
-  @override
-  SignInFormState get initialState => SignInFormState.initial();
+  SignInFormBloc(this._authFacade) : super(SignInFormState.initial());
 
   @override
   Stream<SignInFormState> mapEventToState(
@@ -64,12 +63,12 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
     Future<Either<AuthFailure, Unit>> Function({
-      @required EmailAddress emailAddress,
-      @required Password password,
+      required EmailAddress emailAddress,
+      required Password password,
     })
         forwardedCall,
   ) async* {
-    Either<AuthFailure, Unit> failureOrSuccess;
+    Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
