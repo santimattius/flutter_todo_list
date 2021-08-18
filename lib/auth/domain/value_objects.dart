@@ -2,6 +2,7 @@ import 'package:arch_flutter_ddd/shared/domain/failures.dart';
 import 'package:arch_flutter_ddd/shared/domain/value_objects.dart';
 import 'package:arch_flutter_ddd/shared/domain/value_validators.dart';
 import 'package:dartz/dartz.dart';
+import 'package:uuid/uuid.dart';
 
 class EmailAddress extends ValueObject<String> {
   @override
@@ -27,4 +28,22 @@ class Password extends ValueObject<String> {
   }
 
   const Password._(this.value);
+}
+
+class UniqueId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UniqueId() {
+    return UniqueId._(right(const Uuid().v1()));
+  }
+
+  factory UniqueId.formUniqueString(String? uniqueId) {
+    assert(uniqueId != null);
+    return UniqueId._(
+      right(uniqueId!),
+    );
+  }
+
+  const UniqueId._(this.value);
 }

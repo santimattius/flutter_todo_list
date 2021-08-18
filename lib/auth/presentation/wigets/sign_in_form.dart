@@ -12,6 +12,7 @@ class SignInForm extends StatelessWidget {
                 ? AutovalidateMode.always
                 : AutovalidateMode.disabled,
             child: ListView(
+              padding: const EdgeInsets.all(8.0),
               children: [
                 const Icon(Icons.account_circle),
                 const SizedBox(
