@@ -8,6 +8,7 @@ import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
 import '../auth/presentation/sign_in_page.dart' as _i4;
+import '../notes/presentation/note_overview/note_overview_page.dart' as _i5;
 import '../splash/presentation/splash_page.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -25,13 +26,21 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i4.SignInPage();
+        }),
+    NotesOverviewPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i5.NotesOverviewPage();
         })
   };
 
   @override
-  List<_i1.RouteConfig> get routes => [
+  List<_i1.RouteConfig> get routes =>
+      [
         _i1.RouteConfig(SplashPageRoute.name, path: '/'),
-        _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page')
+        _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(NotesOverviewPageRoute.name,
+            path: '/notes-overview-page')
       ];
 }
 
@@ -45,4 +54,10 @@ class SignInPageRoute extends _i1.PageRouteInfo {
   const SignInPageRoute() : super(name, path: '/sign-in-page');
 
   static const String name = 'SignInPageRoute';
+}
+
+class NotesOverviewPageRoute extends _i1.PageRouteInfo {
+  const NotesOverviewPageRoute() : super(name, path: '/notes-overview-page');
+
+  static const String name = 'NotesOverviewPageRoute';
 }

@@ -1,4 +1,7 @@
+import 'package:arch_flutter_ddd/auth/application/auth_bloc.dart';
 import 'package:arch_flutter_ddd/auth/application/sign_in_form/sign_in_form_bloc.dart';
+import 'package:arch_flutter_ddd/routes/app_router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,11 +32,11 @@ class SignInForm extends StatelessWidget {
                       .value
                       .fold(
                         (failure) => failure.maybeMap(
-                          invalidEmail: (_) => 'Invalid Email',
-                          orElse: () => null,
-                        ),
+                      invalidEmail: (_) => 'Invalid Email',
+                      orElse: () => null,
+                    ),
                         (_) => null,
-                      ),
+                  ),
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email), labelText: 'Email'),
                   autocorrect: false,
@@ -48,11 +51,11 @@ class SignInForm extends StatelessWidget {
                   validator: (_) =>
                       context.read<SignInFormBloc>().state.password.value.fold(
                             (failure) => failure.maybeMap(
-                              shortPassword: (_) => 'Short password',
-                              orElse: () => null,
-                            ),
+                          shortPassword: (_) => 'Short password',
+                          orElse: () => null,
+                        ),
                             (_) => null,
-                          ),
+                      ),
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.lock), labelText: 'Password'),
                   autocorrect: false,
@@ -99,8 +102,8 @@ class SignInForm extends StatelessWidget {
       },
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-            () => {},
-            (either) => either.fold(
+                () => {},
+                (either) => either.fold(
                   (failure) => {
                     _showSnackBar(
                         context,
@@ -111,8 +114,10 @@ class SignInForm extends StatelessWidget {
                             invalidEmailAndPasswordCombination: (_) =>
                                 'Invalid email and password combination')),
                   },
-                  (_) => {
-                    //TODO:navigate
+                  (_) {
+                    AutoRouter.of(context).push(const NotesOverviewPageRoute());
+                    BlocProvider.of<AuthBloc>(context)
+                        .add(const AuthEvent.authCheckRequested());
                   },
                 ));
       },

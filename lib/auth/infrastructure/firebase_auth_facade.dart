@@ -77,8 +77,9 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Option<User> getSignedInUser() =>
-      optionOf(User(UniqueId.formUniqueString(_firebaseAuth.currentUser?.uid)));
+  Option<User> getSignedInUser() => optionOf(_firebaseAuth.currentUser == null
+      ? null
+      : User(UniqueId.formUniqueString(_firebaseAuth.currentUser?.uid)));
 
   @override
   Future<void> signOut() =>
