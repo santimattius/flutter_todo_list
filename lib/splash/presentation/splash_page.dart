@@ -7,14 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final autoRouter = AutoRouter.of(context);
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.map(
           initial: (_) {},
           authenticated: (_) =>
-              AutoRouter.of(context).push(const NotesOverviewPageRoute()),
-          unauthenticated: (_) =>
-              AutoRouter.of(context).push(const SignInPageRoute()),
+              autoRouter.replace(const NotesOverviewPageRoute()),
+          unauthenticated: (_) => autoRouter.replace(const SignInPageRoute()),
         );
       },
       child: const Scaffold(

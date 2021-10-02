@@ -33,9 +33,7 @@ const $TodoItemPrimitive = _$TodoItemPrimitiveTearOff();
 /// @nodoc
 mixin _$TodoItemPrimitive {
   UniqueId get id => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
-
   bool get done => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -48,7 +46,6 @@ abstract class $TodoItemPrimitiveCopyWith<$Res> {
   factory $TodoItemPrimitiveCopyWith(
           TodoItemPrimitive value, $Res Function(TodoItemPrimitive) then) =
       _$TodoItemPrimitiveCopyWithImpl<$Res>;
-
   $Res call({UniqueId id, String name, bool done});
 }
 
@@ -58,7 +55,6 @@ class _$TodoItemPrimitiveCopyWithImpl<$Res>
   _$TodoItemPrimitiveCopyWithImpl(this._value, this._then);
 
   final TodoItemPrimitive _value;
-
   // ignore: unused_field
   final $Res Function(TodoItemPrimitive) _then;
 
@@ -91,7 +87,6 @@ abstract class _$TodoItemPrimitiveCopyWith<$Res>
   factory _$TodoItemPrimitiveCopyWith(
           _TodoItemPrimitive value, $Res Function(_TodoItemPrimitive) then) =
       __$TodoItemPrimitiveCopyWithImpl<$Res>;
-
   @override
   $Res call({UniqueId id, String name, bool done});
 }
@@ -179,18 +174,14 @@ abstract class _TodoItemPrimitive extends TodoItemPrimitive {
       {required UniqueId id,
       required String name,
       required bool done}) = _$_TodoItemPrimitive;
-
   const _TodoItemPrimitive._() : super._();
 
   @override
   UniqueId get id => throw _privateConstructorUsedError;
-
   @override
   String get name => throw _privateConstructorUsedError;
-
   @override
   bool get done => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$TodoItemPrimitiveCopyWith<_TodoItemPrimitive> get copyWith =>

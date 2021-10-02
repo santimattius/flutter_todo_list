@@ -60,7 +60,6 @@ mixin _$NoteFormEvent {
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Option<Note> initialNoteOption)? initialized,
@@ -70,7 +69,6 @@ mixin _$NoteFormEvent {
     TResult Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Note> initialNoteOption)? initialized,
@@ -81,7 +79,6 @@ mixin _$NoteFormEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
@@ -91,7 +88,6 @@ mixin _$NoteFormEvent {
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
@@ -101,7 +97,6 @@ mixin _$NoteFormEvent {
     TResult Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
@@ -127,7 +122,6 @@ class _$NoteFormEventCopyWithImpl<$Res>
   _$NoteFormEventCopyWithImpl(this._value, this._then);
 
   final NoteFormEvent _value;
-
   // ignore: unused_field
   final $Res Function(NoteFormEvent) _then;
 }
@@ -137,7 +131,6 @@ abstract class _$InitializedCopyWith<$Res> {
   factory _$InitializedCopyWith(
           _Initialized value, $Res Function(_Initialized) then) =
       __$InitializedCopyWithImpl<$Res>;
-
   $Res call({Option<Note> initialNoteOption});
 }
 
@@ -281,7 +274,6 @@ abstract class _Initialized implements NoteFormEvent {
   const factory _Initialized(Option<Note> initialNoteOption) = _$_Initialized;
 
   Option<Note> get initialNoteOption => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith =>
       throw _privateConstructorUsedError;
@@ -292,7 +284,6 @@ abstract class _$BodyChangedCopyWith<$Res> {
   factory _$BodyChangedCopyWith(
           _BodyChanged value, $Res Function(_BodyChanged) then) =
       __$BodyChangedCopyWithImpl<$Res>;
-
   $Res call({String bodyStr});
 }
 
@@ -434,7 +425,6 @@ abstract class _BodyChanged implements NoteFormEvent {
   const factory _BodyChanged(String bodyStr) = _$_BodyChanged;
 
   String get bodyStr => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -445,7 +435,6 @@ abstract class _$ColorChangedCopyWith<$Res> {
   factory _$ColorChangedCopyWith(
           _ColorChanged value, $Res Function(_ColorChanged) then) =
       __$ColorChangedCopyWithImpl<$Res>;
-
   $Res call({Color color});
 }
 
@@ -588,7 +577,6 @@ abstract class _ColorChanged implements NoteFormEvent {
   const factory _ColorChanged(Color color) = _$_ColorChanged;
 
   Color get color => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -599,7 +587,6 @@ abstract class _$TodosChangedCopyWith<$Res> {
   factory _$TodosChangedCopyWith(
           _TodosChanged value, $Res Function(_TodosChanged) then) =
       __$TodosChangedCopyWithImpl<$Res>;
-
   $Res call({KtList<TodoItemPrimitive> todos});
 }
 
@@ -743,7 +730,6 @@ abstract class _TodosChanged implements NoteFormEvent {
       _$_TodosChanged;
 
   KtList<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -894,13 +880,9 @@ const $NoteFormState = _$NoteFormStateTearOff();
 /// @nodoc
 mixin _$NoteFormState {
   Note get note => throw _privateConstructorUsedError;
-
   bool get showErrorMessages => throw _privateConstructorUsedError;
-
   bool get isEditing => throw _privateConstructorUsedError;
-
   bool get isSaving => throw _privateConstructorUsedError;
-
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -914,7 +896,6 @@ abstract class $NoteFormStateCopyWith<$Res> {
   factory $NoteFormStateCopyWith(
           NoteFormState value, $Res Function(NoteFormState) then) =
       _$NoteFormStateCopyWithImpl<$Res>;
-
   $Res call(
       {Note note,
       bool showErrorMessages,
@@ -931,7 +912,6 @@ class _$NoteFormStateCopyWithImpl<$Res>
   _$NoteFormStateCopyWithImpl(this._value, this._then);
 
   final NoteFormState _value;
-
   // ignore: unused_field
   final $Res Function(NoteFormState) _then;
 
@@ -981,7 +961,6 @@ abstract class _$NoteFormStateCopyWith<$Res>
   factory _$NoteFormStateCopyWith(
           _NoteFormState value, $Res Function(_NoteFormState) then) =
       __$NoteFormStateCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {Note note,
@@ -1112,20 +1091,15 @@ abstract class _NoteFormState implements NoteFormState {
 
   @override
   Note get note => throw _privateConstructorUsedError;
-
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
-
   @override
   bool get isEditing => throw _privateConstructorUsedError;
-
   @override
   bool get isSaving => throw _privateConstructorUsedError;
-
   @override
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>

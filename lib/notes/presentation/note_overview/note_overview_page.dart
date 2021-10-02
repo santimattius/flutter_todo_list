@@ -4,6 +4,9 @@ import 'package:arch_flutter_ddd/notes/application/note_actor/note_actor_bloc.da
 import 'package:arch_flutter_ddd/notes/application/note_watcher/note_watcher_bloc.dart';
 import 'package:arch_flutter_ddd/notes/presentation/note_overview/widgets/note_overview_body_widget.dart';
 import 'package:arch_flutter_ddd/notes/presentation/note_overview/widgets/uncompleted_switch.dart';
+import 'package:arch_flutter_ddd/routes/app_router.gr.dart';
+import 'package:arch_flutter_ddd/shared/presentation/snack_bar.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +29,7 @@ class NotesOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) {
-                  //ExtendedNavigator.of(context).replace(Routes.signInPage),
+                  AutoRouter.of(context).replace(const SignInPageRoute());
                 },
                 orElse: () {},
               );
@@ -36,16 +39,13 @@ class NotesOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 deleteFailure: (state) {
-                  // FlushbarHelper.createError(
-                  //   duration: const Duration(seconds: 5),
-                  //   message: state.noteFailure.map(
-                  //     unexpected: (_) =>
-                  //     'Unexpected error occured while deleting, please contact support.',
-                  //     insufficientPermission: (_) =>
-                  //     'Insufficient permissions ❌',
-                  //     unableToUpdate: (_) => 'Impossible error',
-                  //   ),
-                  // ).show(context);
+                  final message = state.noteFailure.map(
+                    unexpected: (_) =>
+                        'Unexpected error occured while deleting, please contact support.',
+                    insufficientPermission: (_) => 'Insufficient permissions ❌',
+                    unableToUpdate: (_) => 'Impossible error',
+                  );
+                  showSnackBar(context, message);
                 },
                 orElse: () {},
               );
@@ -69,7 +69,7 @@ class NotesOverviewPage extends StatelessWidget {
           body: NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              //ExtendedNavigator.of(context).pushNoteFormPage(editedNote: null);
+              AutoRouter.of(context).push(NoteFormPageRoute(editedNote: null));
             },
             child: const Icon(Icons.add),
           ),

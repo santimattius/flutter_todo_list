@@ -1,6 +1,7 @@
 import 'package:arch_flutter_ddd/auth/application/auth_bloc.dart';
 import 'package:arch_flutter_ddd/auth/application/sign_in_form/sign_in_form_bloc.dart';
 import 'package:arch_flutter_ddd/routes/app_router.gr.dart';
+import 'package:arch_flutter_ddd/shared/presentation/snack_bar.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,11 +33,11 @@ class SignInForm extends StatelessWidget {
                       .value
                       .fold(
                         (failure) => failure.maybeMap(
-                      invalidEmail: (_) => 'Invalid Email',
-                      orElse: () => null,
-                    ),
+                          invalidEmail: (_) => 'Invalid Email',
+                          orElse: () => null,
+                        ),
                         (_) => null,
-                  ),
+                      ),
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email), labelText: 'Email'),
                   autocorrect: false,
@@ -51,11 +52,11 @@ class SignInForm extends StatelessWidget {
                   validator: (_) =>
                       context.read<SignInFormBloc>().state.password.value.fold(
                             (failure) => failure.maybeMap(
-                          shortPassword: (_) => 'Short password',
-                          orElse: () => null,
-                        ),
+                              shortPassword: (_) => 'Short password',
+                              orElse: () => null,
+                            ),
                             (_) => null,
-                      ),
+                          ),
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.lock), labelText: 'Password'),
                   autocorrect: false,
@@ -102,10 +103,10 @@ class SignInForm extends StatelessWidget {
       },
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-                () => {},
-                (either) => either.fold(
+            () => {},
+            (either) => either.fold(
                   (failure) => {
-                    _showSnackBar(
+                    showSnackBar(
                         context,
                         failure.map(
                             cancelledByUser: (_) => 'Cancelled',
@@ -122,12 +123,5 @@ class SignInForm extends StatelessWidget {
                 ));
       },
     );
-  }
-
-  void _showSnackBar(BuildContext context, String message) {
-    final snackBar = SnackBar(
-      content: Text(message),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

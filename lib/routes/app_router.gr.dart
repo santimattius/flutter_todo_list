@@ -8,6 +8,8 @@ import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
 import '../auth/presentation/sign_in_page.dart' as _i4;
+import '../notes/domain/note.dart' as _i7;
+import '../notes/presentation/note_form/note_form_page.dart' as _i6;
 import '../notes/presentation/note_overview/note_overview_page.dart' as _i5;
 import '../splash/presentation/splash_page.dart' as _i3;
 
@@ -31,16 +33,22 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i5.NotesOverviewPage();
+        }),
+    NoteFormPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<NoteFormPageRouteArgs>();
+          return _i6.NoteFormPage(key: args.key, editedNote: args.editedNote);
         })
   };
 
   @override
-  List<_i1.RouteConfig> get routes =>
-      [
+  List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashPageRoute.name, path: '/'),
         _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
         _i1.RouteConfig(NotesOverviewPageRoute.name,
-            path: '/notes-overview-page')
+            path: '/notes-overview-page'),
+        _i1.RouteConfig(NoteFormPageRoute.name, path: '/note-form-page')
       ];
 }
 
@@ -60,4 +68,21 @@ class NotesOverviewPageRoute extends _i1.PageRouteInfo {
   const NotesOverviewPageRoute() : super(name, path: '/notes-overview-page');
 
   static const String name = 'NotesOverviewPageRoute';
+}
+
+class NoteFormPageRoute extends _i1.PageRouteInfo<NoteFormPageRouteArgs> {
+  NoteFormPageRoute({_i2.Key? key, required _i7.Note? editedNote})
+      : super(name,
+            path: '/note-form-page',
+            args: NoteFormPageRouteArgs(key: key, editedNote: editedNote));
+
+  static const String name = 'NoteFormPageRoute';
+}
+
+class NoteFormPageRouteArgs {
+  const NoteFormPageRouteArgs({this.key, required this.editedNote});
+
+  final _i2.Key? key;
+
+  final _i7.Note? editedNote;
 }
