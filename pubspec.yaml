@@ -51,7 +51,7 @@ dev_dependencies:
   lint: ^1.5.3
   injectable_generator: ^1.5.0
   auto_route_generator: ^2.3.0
-  json_serializable: ^5.0.0
+  json_serializable: ^5.0.2
 
 dependency_overrides:
   analyzer: ^2.0.0

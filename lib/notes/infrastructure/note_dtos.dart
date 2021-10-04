@@ -9,7 +9,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart';
 
 part 'note_dtos.freezed.dart';
-
 part 'note_dtos.g.dart';
 
 @freezed
@@ -57,16 +56,17 @@ abstract class NoteDto implements _$NoteDto {
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+class ServerTimestampConverter implements JsonConverter<FieldValue?, Object?> {
   const ServerTimestampConverter();
 
   @override
-  FieldValue fromJson(Object json) {
+  FieldValue fromJson(Object? json) {
     return FieldValue.serverTimestamp();
   }
 
   @override
-  Object toJson(FieldValue fieldValue) => fieldValue;
+  Object toJson(FieldValue? fieldValue) =>
+      fieldValue ?? FieldValue.serverTimestamp();
 }
 
 @freezed
