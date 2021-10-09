@@ -18,7 +18,11 @@ class SignInForm extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.all(8.0),
               children: [
-                const Icon(Icons.account_circle),
+                const Center(
+                    child: Icon(
+                  Icons.account_circle,
+                  size: 92.0,
+                )),
                 const SizedBox(
                   height: 8,
                 ),
