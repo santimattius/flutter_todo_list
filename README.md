@@ -63,5 +63,6 @@ dependency_overrides:
 ## References
 
 - [Domain Driven Design](https://martinfowler.com/bliki/DomainDrivenDesign.html)
-- The whole accompanying tutorial series is available at 👉 [this link](https://resocoder.com/flutter-firebase-ddd-course) 👈.
+- [Flutter Firebase & DDD](https://www.youtube.com/playlist?list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U) by [Reso Coder](https://www.youtube.com/c/ResoCoder)
+  - The whole accompanying tutorial series is available at 👉 [this link](https://resocoder.com/flutter-firebase-ddd-course) 👈.
 
