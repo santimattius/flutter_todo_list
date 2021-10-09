@@ -1,4 +1,4 @@
-# Flutter Notes
+# Flutter Todo List
 
 Flutter app using Domain Driven Design (DDD)
 
