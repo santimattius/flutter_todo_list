@@ -136,7 +136,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchAllStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WatchAllStarted);
   }
 
   @override
@@ -251,7 +252,8 @@ class _$_WatchUncompletedStarted implements _WatchUncompletedStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchUncompletedStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WatchUncompletedStarted);
   }
 
   @override
@@ -382,16 +384,14 @@ class _$_NotesReceived implements _NotesReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NotesReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _NotesReceived &&
             (identical(other.failureOrNotes, failureOrNotes) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrNotes, failureOrNotes)));
+                other.failureOrNotes == failureOrNotes));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrNotes);
+  int get hashCode => Object.hash(runtimeType, failureOrNotes);
 
   @JsonKey(ignore: true)
   @override
@@ -475,8 +475,7 @@ abstract class _NotesReceived implements NoteWatcherEvent {
   const factory _NotesReceived(
       Either<NoteFailure, KtList<Note>> failureOrNotes) = _$_NotesReceived;
 
-  Either<NoteFailure, KtList<Note>> get failureOrNotes =>
-      throw _privateConstructorUsedError;
+  Either<NoteFailure, KtList<Note>> get failureOrNotes;
   @JsonKey(ignore: true)
   _$NotesReceivedCopyWith<_NotesReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -609,7 +608,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
   }
 
   @override
@@ -725,7 +725,8 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoadInProgress);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoadInProgress);
   }
 
   @override
@@ -858,14 +859,13 @@ class _$_LoadSuccess implements _LoadSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadSuccess &&
-            (identical(other.notes, notes) ||
-                const DeepCollectionEquality().equals(other.notes, notes)));
+        (other.runtimeType == runtimeType &&
+            other is _LoadSuccess &&
+            (identical(other.notes, notes) || other.notes == notes));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(notes);
+  int get hashCode => Object.hash(runtimeType, notes);
 
   @JsonKey(ignore: true)
   @override
@@ -950,7 +950,7 @@ class _$_LoadSuccess implements _LoadSuccess {
 abstract class _LoadSuccess implements NoteWatcherState {
   const factory _LoadSuccess(KtList<Note> notes) = _$_LoadSuccess;
 
-  KtList<Note> get notes => throw _privateConstructorUsedError;
+  KtList<Note> get notes;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1013,15 +1013,14 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadFailure &&
+        (other.runtimeType == runtimeType &&
+            other is _LoadFailure &&
             (identical(other.noteFailure, noteFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.noteFailure, noteFailure)));
+                other.noteFailure == noteFailure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(noteFailure);
+  int get hashCode => Object.hash(runtimeType, noteFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -1106,7 +1105,7 @@ class _$_LoadFailure implements _LoadFailure {
 abstract class _LoadFailure implements NoteWatcherState {
   const factory _LoadFailure(NoteFailure noteFailure) = _$_LoadFailure;
 
-  NoteFailure get noteFailure => throw _privateConstructorUsedError;
+  NoteFailure get noteFailure;
   @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       throw _privateConstructorUsedError;

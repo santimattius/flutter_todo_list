@@ -147,21 +147,15 @@ class _$_TodoItemPrimitive extends _TodoItemPrimitive {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TodoItemPrimitive &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.done, done) ||
-                const DeepCollectionEquality().equals(other.done, done)));
+        (other.runtimeType == runtimeType &&
+            other is _TodoItemPrimitive &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.done, done) || other.done == done));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(done);
+  int get hashCode => Object.hash(runtimeType, id, name, done);
 
   @JsonKey(ignore: true)
   @override
@@ -177,11 +171,11 @@ abstract class _TodoItemPrimitive extends TodoItemPrimitive {
   const _TodoItemPrimitive._() : super._();
 
   @override
-  UniqueId get id => throw _privateConstructorUsedError;
+  UniqueId get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  bool get done => throw _privateConstructorUsedError;
+  bool get done;
   @override
   @JsonKey(ignore: true)
   _$TodoItemPrimitiveCopyWith<_TodoItemPrimitive> get copyWith =>

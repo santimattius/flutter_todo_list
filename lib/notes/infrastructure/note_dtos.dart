@@ -6,6 +6,7 @@ import 'package:arch_flutter_ddd/notes/domain/todo_item.dart';
 import 'package:arch_flutter_ddd/notes/domain/value_objects.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:kt_dart/kt.dart';
 
 part 'note_dtos.freezed.dart';
@@ -20,7 +21,8 @@ abstract class NoteDto implements _$NoteDto {
     required String body,
     required int color,
     required List<TodoItemDto> todos,
-    @ServerTimestampConverter() required FieldValue serverTimeStamp,
+    @ServerTimestampConverter()
+    required DateTime serverTimeStamp,
   }) = _NoteDto;
 
   factory NoteDto.fromDomain(Note note) {
@@ -34,7 +36,7 @@ abstract class NoteDto implements _$NoteDto {
             (todoItem) => TodoItemDto.fromDomain(todoItem),
           )
           .asList(),
-      serverTimeStamp: FieldValue.serverTimestamp(),
+      serverTimeStamp: DateTime.now(),
     );
   }
 
@@ -56,17 +58,21 @@ abstract class NoteDto implements _$NoteDto {
   }
 }
 
-class ServerTimestampConverter implements JsonConverter<FieldValue?, Object?> {
+class ServerTimestampConverter implements JsonConverter<DateTime?, Object?> {
   const ServerTimestampConverter();
 
   @override
-  FieldValue fromJson(Object? json) {
-    return FieldValue.serverTimestamp();
+  DateTime? fromJson(Object? timestamp) {
+    if (timestamp is Timestamp) {
+      return timestamp.toDate();
+    } else {
+      return DateTime.fromMillisecondsSinceEpoch(0);
+    }
   }
 
   @override
-  Object toJson(FieldValue? fieldValue) =>
-      fieldValue ?? FieldValue.serverTimestamp();
+  Object? toJson(DateTime? date) =>
+      date != null ? FieldValue.serverTimestamp() : null;
 }
 
 @freezed

@@ -173,16 +173,14 @@ class _$_Initialized implements _Initialized {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Initialized &&
+        (other.runtimeType == runtimeType &&
+            other is _Initialized &&
             (identical(other.initialNoteOption, initialNoteOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.initialNoteOption, initialNoteOption)));
+                other.initialNoteOption == initialNoteOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(initialNoteOption);
+  int get hashCode => Object.hash(runtimeType, initialNoteOption);
 
   @JsonKey(ignore: true)
   @override
@@ -273,7 +271,7 @@ class _$_Initialized implements _Initialized {
 abstract class _Initialized implements NoteFormEvent {
   const factory _Initialized(Option<Note> initialNoteOption) = _$_Initialized;
 
-  Option<Note> get initialNoteOption => throw _privateConstructorUsedError;
+  Option<Note> get initialNoteOption;
   @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith =>
       throw _privateConstructorUsedError;
@@ -326,14 +324,13 @@ class _$_BodyChanged implements _BodyChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _BodyChanged &&
-            (identical(other.bodyStr, bodyStr) ||
-                const DeepCollectionEquality().equals(other.bodyStr, bodyStr)));
+        (other.runtimeType == runtimeType &&
+            other is _BodyChanged &&
+            (identical(other.bodyStr, bodyStr) || other.bodyStr == bodyStr));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(bodyStr);
+  int get hashCode => Object.hash(runtimeType, bodyStr);
 
   @JsonKey(ignore: true)
   @override
@@ -424,7 +421,7 @@ class _$_BodyChanged implements _BodyChanged {
 abstract class _BodyChanged implements NoteFormEvent {
   const factory _BodyChanged(String bodyStr) = _$_BodyChanged;
 
-  String get bodyStr => throw _privateConstructorUsedError;
+  String get bodyStr;
   @JsonKey(ignore: true)
   _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -478,14 +475,13 @@ class _$_ColorChanged implements _ColorChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ColorChanged &&
-            (identical(other.color, color) ||
-                const DeepCollectionEquality().equals(other.color, color)));
+        (other.runtimeType == runtimeType &&
+            other is _ColorChanged &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(color);
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override
@@ -576,7 +572,7 @@ class _$_ColorChanged implements _ColorChanged {
 abstract class _ColorChanged implements NoteFormEvent {
   const factory _ColorChanged(Color color) = _$_ColorChanged;
 
-  Color get color => throw _privateConstructorUsedError;
+  Color get color;
   @JsonKey(ignore: true)
   _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -630,14 +626,13 @@ class _$_TodosChanged implements _TodosChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TodosChanged &&
-            (identical(other.todos, todos) ||
-                const DeepCollectionEquality().equals(other.todos, todos)));
+        (other.runtimeType == runtimeType &&
+            other is _TodosChanged &&
+            (identical(other.todos, todos) || other.todos == todos));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(todos);
+  int get hashCode => Object.hash(runtimeType, todos);
 
   @JsonKey(ignore: true)
   @override
@@ -729,7 +724,7 @@ abstract class _TodosChanged implements NoteFormEvent {
   const factory _TodosChanged(KtList<TodoItemPrimitive> todos) =
       _$_TodosChanged;
 
-  KtList<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
+  KtList<TodoItemPrimitive> get todos;
   @JsonKey(ignore: true)
   _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -763,7 +758,8 @@ class _$_Saved implements _Saved {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Saved);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Saved);
   }
 
   @override
@@ -1046,33 +1042,24 @@ class _$_NoteFormState implements _NoteFormState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NoteFormState &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
+        (other.runtimeType == runtimeType &&
+            other is _NoteFormState &&
+            (identical(other.note, note) || other.note == note) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
+                other.showErrorMessages == showErrorMessages) &&
             (identical(other.isEditing, isEditing) ||
-                const DeepCollectionEquality()
-                    .equals(other.isEditing, isEditing)) &&
+                other.isEditing == isEditing) &&
             (identical(other.isSaving, isSaving) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSaving, isSaving)) &&
+                other.isSaving == isSaving) &&
             (identical(other.saveFailureOrSuccessOption,
                     saveFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.saveFailureOrSuccessOption,
-                    saveFailureOrSuccessOption)));
+                other.saveFailureOrSuccessOption ==
+                    saveFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(note) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isEditing) ^
-      const DeepCollectionEquality().hash(isSaving) ^
-      const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
+  int get hashCode => Object.hash(runtimeType, note, showErrorMessages,
+      isEditing, isSaving, saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -1090,16 +1077,15 @@ abstract class _NoteFormState implements NoteFormState {
           saveFailureOrSuccessOption}) = _$_NoteFormState;
 
   @override
-  Note get note => throw _privateConstructorUsedError;
+  Note get note;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get isEditing => throw _privateConstructorUsedError;
+  bool get isEditing;
   @override
-  bool get isSaving => throw _privateConstructorUsedError;
+  bool get isSaving;
   @override
-  Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>

@@ -128,7 +128,8 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Unexpected);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Unexpected);
   }
 
   @override
@@ -239,7 +240,8 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InsufficientPermission);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InsufficientPermission);
   }
 
   @override
@@ -350,7 +352,8 @@ class _$_UnableToUpdate implements _UnableToUpdate {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UnableToUpdate);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _UnableToUpdate);
   }
 
   @override

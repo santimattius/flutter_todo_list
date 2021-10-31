@@ -158,14 +158,13 @@ class _$_Deleted implements _Deleted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Deleted &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)));
+        (other.runtimeType == runtimeType &&
+            other is _Deleted &&
+            (identical(other.note, note) || other.note == note));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(note);
+  int get hashCode => Object.hash(runtimeType, note);
 
   @JsonKey(ignore: true)
   @override
@@ -233,7 +232,7 @@ abstract class _Deleted implements NoteActorEvent {
   const factory _Deleted(Note note) = _$_Deleted;
 
   @override
-  Note get note => throw _privateConstructorUsedError;
+  Note get note;
   @override
   @JsonKey(ignore: true)
   _$DeletedCopyWith<_Deleted> get copyWith =>
@@ -365,7 +364,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
   }
 
   @override
@@ -481,7 +481,8 @@ class _$_ActionInProgress implements _ActionInProgress {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ActionInProgress);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ActionInProgress);
   }
 
   @override
@@ -623,15 +624,14 @@ class _$_DeleteFailure implements _DeleteFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DeleteFailure &&
+        (other.runtimeType == runtimeType &&
+            other is _DeleteFailure &&
             (identical(other.noteFailure, noteFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.noteFailure, noteFailure)));
+                other.noteFailure == noteFailure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(noteFailure);
+  int get hashCode => Object.hash(runtimeType, noteFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -716,7 +716,7 @@ class _$_DeleteFailure implements _DeleteFailure {
 abstract class _DeleteFailure implements NoteActorState {
   const factory _DeleteFailure(NoteFailure noteFailure) = _$_DeleteFailure;
 
-  NoteFailure get noteFailure => throw _privateConstructorUsedError;
+  NoteFailure get noteFailure;
   @JsonKey(ignore: true)
   _$DeleteFailureCopyWith<_DeleteFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -753,7 +753,8 @@ class _$_DeleteSuccess implements _DeleteSuccess {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _DeleteSuccess);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _DeleteSuccess);
   }
 
   @override
