@@ -1,4 +1,4 @@
-import 'package:arch_flutter_ddd/shared/domain/failures.dart';
+import 'package:flutter_todo_list/shared/domain/failures.dart';
 
 class NotAuthenticatedError extends Error {}
 

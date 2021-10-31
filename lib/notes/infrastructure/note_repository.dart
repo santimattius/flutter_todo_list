@@ -1,8 +1,8 @@
-import 'package:arch_flutter_ddd/notes/domain/i_note_repository.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/note_failure.dart';
-import 'package:arch_flutter_ddd/notes/infrastructure/note_dtos.dart';
-import 'package:arch_flutter_ddd/shared/infrastructure/firestore_extensions.dart';
+import 'package:flutter_todo_list/notes/domain/i_note_repository.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/note_failure.dart';
+import 'package:flutter_todo_list/notes/infrastructure/note_dtos.dart';
+import 'package:flutter_todo_list/shared/infrastructure/firestore_extensions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';

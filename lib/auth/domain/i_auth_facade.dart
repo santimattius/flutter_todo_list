@@ -1,5 +1,5 @@
-import 'package:arch_flutter_ddd/auth/domain/user.dart';
-import 'package:arch_flutter_ddd/auth/domain/value_objects.dart';
+import 'package:flutter_todo_list/auth/domain/user.dart';
+import 'package:flutter_todo_list/auth/domain/value_objects.dart';
 import 'package:dartz/dartz.dart';
 
 import 'auth_failure.dart';

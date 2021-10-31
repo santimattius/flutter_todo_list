@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:arch_flutter_ddd/notes/domain/i_note_repository.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/note_failure.dart';
-import 'package:arch_flutter_ddd/notes/domain/value_objects.dart';
-import 'package:arch_flutter_ddd/notes/presentation/misc/todo_item_presentation_classes.dart';
+import 'package:flutter_todo_list/notes/domain/i_note_repository.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/note_failure.dart';
+import 'package:flutter_todo_list/notes/domain/value_objects.dart';
+import 'package:flutter_todo_list/notes/presentation/misc/todo_item_presentation_classes.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

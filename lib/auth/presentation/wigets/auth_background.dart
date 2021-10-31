@@ -1,5 +1,5 @@
-import 'package:arch_flutter_ddd/auth/presentation/wigets/header_box.dart';
-import 'package:arch_flutter_ddd/auth/presentation/wigets/header_icon.dart';
+import 'package:flutter_todo_list/auth/presentation/wigets/header_box.dart';
+import 'package:flutter_todo_list/auth/presentation/wigets/header_icon.dart';
 import 'package:flutter/material.dart';
 
 class AuthBackground extends StatelessWidget {

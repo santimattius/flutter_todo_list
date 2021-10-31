@@ -1,7 +1,7 @@
-import 'package:arch_flutter_ddd/notes/application/note_actor/note_actor_bloc.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/todo_item.dart';
-import 'package:arch_flutter_ddd/routes/app_router.gr.dart';
+import 'package:flutter_todo_list/notes/application/note_actor/note_actor_bloc.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/todo_item.dart';
+import 'package:flutter_todo_list/routes/app_router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

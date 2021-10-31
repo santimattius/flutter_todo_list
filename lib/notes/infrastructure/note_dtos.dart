@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:arch_flutter_ddd/auth/domain/value_objects.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/todo_item.dart';
-import 'package:arch_flutter_ddd/notes/domain/value_objects.dart';
+import 'package:flutter_todo_list/auth/domain/value_objects.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/todo_item.dart';
+import 'package:flutter_todo_list/notes/domain/value_objects.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';

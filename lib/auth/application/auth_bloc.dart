@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:arch_flutter_ddd/auth/domain/i_auth_facade.dart';
+import 'package:flutter_todo_list/auth/domain/i_auth_facade.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

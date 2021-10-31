@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:arch_flutter_ddd/auth/domain/auth_failure.dart';
-import 'package:arch_flutter_ddd/auth/domain/i_auth_facade.dart';
-import 'package:arch_flutter_ddd/auth/domain/value_objects.dart';
+import 'package:flutter_todo_list/auth/domain/auth_failure.dart';
+import 'package:flutter_todo_list/auth/domain/i_auth_facade.dart';
+import 'package:flutter_todo_list/auth/domain/value_objects.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
