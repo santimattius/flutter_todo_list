@@ -14,16 +14,39 @@ class NoteApplication extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) =>
-                getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()))
+          create: (context) =>
+              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+        )
       ],
       child: MaterialApp.router(
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
-          routeInformationParser: _appRouter.defaultRouteParser(),
-          routerDelegate: AutoRouterDelegate(_appRouter)),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: const ColorScheme(
+              primary: primaryColor,
+              primaryVariant: primaryVariantColor,
+              secondaryVariant: secondaryColor,
+              secondary: secondaryVariantColor,
+              background: Colors.white,
+              surface: Colors.white,
+              error: Colors.red,
+              onPrimary: Colors.white,
+              onSecondary: Colors.black,
+              onBackground: Colors.black,
+              onSurface: Colors.black,
+              onError: Colors.white,
+              brightness: Brightness.light),
+          appBarTheme: const AppBarTheme(backgroundColor: primaryColor),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: AutoRouterDelegate(_appRouter),
+      ),
     );
   }
 }
+
+const primaryColor = Color(0xFF81c784);
+const primaryVariantColor = Color(0xFF519657);
+
+const secondaryColor = Color(0xFF81d4fa);
+const secondaryVariantColor = Color(0xFF4ba3c7);

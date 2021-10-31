@@ -21,8 +21,7 @@ abstract class NoteDto implements _$NoteDto {
     required String body,
     required int color,
     required List<TodoItemDto> todos,
-    @ServerTimestampConverter()
-    required DateTime serverTimeStamp,
+    @ServerTimestampConverter() required DateTime serverTimeStamp,
   }) = _NoteDto;
 
   factory NoteDto.fromDomain(Note note) {

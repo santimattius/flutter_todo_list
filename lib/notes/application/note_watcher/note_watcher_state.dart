@@ -6,5 +6,5 @@ abstract class NoteWatcherState with _$NoteWatcherState {
   const factory NoteWatcherState.loadInProgress() = _LoadInProgress;
   const factory NoteWatcherState.loadSuccess(KtList<Note> notes) = _LoadSuccess;
   const factory NoteWatcherState.loadFailure(NoteFailure noteFailure) =
-  _LoadFailure;
+      _LoadFailure;
 }
