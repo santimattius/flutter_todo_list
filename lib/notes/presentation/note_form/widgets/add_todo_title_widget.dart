@@ -1,6 +1,6 @@
-import 'package:arch_flutter_ddd/notes/application/note_form/note_form_bloc.dart';
-import 'package:arch_flutter_ddd/notes/presentation/misc/build_context.dart';
-import 'package:arch_flutter_ddd/notes/presentation/misc/todo_item_presentation_classes.dart';
+import 'package:flutter_todo_list/notes/application/note_form/note_form_bloc.dart';
+import 'package:flutter_todo_list/notes/presentation/misc/build_context.dart';
+import 'package:flutter_todo_list/notes/presentation/misc/todo_item_presentation_classes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/kt.dart';

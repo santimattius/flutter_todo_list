@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:arch_flutter_ddd/auth/domain/i_auth_facade.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter_todo_list/auth/domain/i_auth_facade.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -15,23 +15,28 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
 
-  AuthBloc(this._authFacade) : super(const AuthState.initial());
+  AuthBloc(this._authFacade) : super(const AuthState.initial()) {
+    on<AuthEvent>(_onEvent);
+  }
 
-  @override
-  Stream<AuthState> mapEventToState(
+  FutureOr<void> _onEvent(AuthEvent event, Emitter<AuthState> emit) async {
+    emit(await mapEventToState(event));
+  }
+
+  Future<AuthState> mapEventToState(
     AuthEvent event,
-  ) async* {
-    yield* event.map(
-      authCheckRequested: (e) async* {
+  ) async {
+    return event.map(
+      authCheckRequested: (value) {
         final userOption = _authFacade.getSignedInUser();
-        yield userOption.fold(
+        return userOption.fold(
           () => const AuthState.unauthenticated(),
           (_) => const AuthState.authenticated(),
         );
       },
-      signedOut: (e) async* {
+      signedOut: (e) async {
         await _authFacade.signOut();
-        yield const AuthState.unauthenticated();
+        return const AuthState.unauthenticated();
       },
     );
   }

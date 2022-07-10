@@ -1,28 +1,39 @@
 import 'dart:async';
 
-import 'package:arch_flutter_ddd/notes/domain/i_note_repository.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/note_failure.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_todo_list/notes/domain/i_note_repository.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/note_failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-part 'note_watcher_event.dart';
-part 'note_watcher_state.dart';
 part 'note_watcher_bloc.freezed.dart';
+
+part 'note_watcher_event.dart';
+
+part 'note_watcher_state.dart';
 
 @injectable
 class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
   final INoteRepository _noteRepository;
 
-  StreamSubscription<Either<NoteFailure, KtList<Note>>>? _noteStreamSubscription;
+  StreamSubscription<Either<NoteFailure, KtList<Note>>>?
+      _noteStreamSubscription;
 
   NoteWatcherBloc(this._noteRepository)
-      : super(const NoteWatcherState.initial());
+      : super(const NoteWatcherState.initial()) {
+    on<NoteWatcherEvent>(
+      (event, emit) => emit.onEach<NoteWatcherState>(
+        mapEventToState(event),
+        onData: (state) {
+          emit(state);
+        },
+      ),
+    );
+  }
 
-  @override
   Stream<NoteWatcherState> mapEventToState(
     NoteWatcherEvent event,
   ) async* {

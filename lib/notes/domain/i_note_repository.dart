@@ -1,6 +1,6 @@
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/note_failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/note_failure.dart';
 import 'package:kt_dart/collection.dart';
 
 abstract class INoteRepository {

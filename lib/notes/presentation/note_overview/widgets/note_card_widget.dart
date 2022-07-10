@@ -1,10 +1,10 @@
-import 'package:arch_flutter_ddd/notes/application/note_actor/note_actor_bloc.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/domain/todo_item.dart';
-import 'package:arch_flutter_ddd/routes/app_router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_todo_list/notes/application/note_actor/note_actor_bloc.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/domain/todo_item.dart';
+import 'package:flutter_todo_list/routes/app_router.gr.dart';
 import 'package:kt_dart/collection.dart';
 
 class NoteCard extends StatelessWidget {
@@ -17,40 +17,44 @@ class NoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: note.color.getOrCrash(),
-      child: InkWell(
-        onTap: () {
-          AutoRouter.of(context).push(NoteFormPageRoute(editedNote: note));
-        },
-        onLongPress: () {
-          final noteActorBloc = BlocProvider.of<NoteActorBloc>(context);
-          _showDeletionDialog(context, noteActorBloc);
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                note.body.getOrCrash(),
-                style: const TextStyle(fontSize: 18),
-              ),
-              if (note.todos.length > 0) ...[
-                const SizedBox(height: 4),
-                Wrap(
-                  spacing: 8,
-                  children: <Widget>[
-                    ...note.todos
-                        .getOrCrash()
-                        .map(
-                          (TodoItem todo) => TodoDisplay(todo: todo),
-                        )
-                        .iter,
-                  ],
-                )
-              ]
-            ],
+    return Padding(
+      padding:
+          const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+      child: Card(
+        color: note.color.getOrCrash(),
+        child: InkWell(
+          onTap: () {
+            AutoRouter.of(context).push(NoteFormPageRoute(editedNote: note));
+          },
+          onLongPress: () {
+            final noteActorBloc = BlocProvider.of<NoteActorBloc>(context);
+            _showDeletionDialog(context, noteActorBloc);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  note.body.getOrCrash(),
+                  style: const TextStyle(fontSize: 18),
+                ),
+                if (note.todos.length > 0) ...[
+                  const SizedBox(height: 4),
+                  Wrap(
+                    spacing: 8,
+                    children: <Widget>[
+                      ...note.todos
+                          .getOrCrash()
+                          .map(
+                            (TodoItem todo) => TodoDisplay(todo: todo),
+                          )
+                          .iter,
+                    ],
+                  )
+                ]
+              ],
+            ),
           ),
         ),
       ),

@@ -7,6 +7,8 @@
 // **************************************************************************
 // AutoRouteGenerator
 // **************************************************************************
+//
+// ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
@@ -53,31 +55,36 @@ class AppRouter extends _i5.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.SplashPage]
+/// generated route for
+/// [_i1.SplashPage]
 class SplashPageRoute extends _i5.PageRouteInfo<void> {
-  const SplashPageRoute() : super(name, path: '/');
+  const SplashPageRoute() : super(SplashPageRoute.name, path: '/');
 
   static const String name = 'SplashPageRoute';
 }
 
-/// generated route for [_i2.SignInPage]
+/// generated route for
+/// [_i2.SignInPage]
 class SignInPageRoute extends _i5.PageRouteInfo<void> {
-  const SignInPageRoute() : super(name, path: '/sign-in-page');
+  const SignInPageRoute() : super(SignInPageRoute.name, path: '/sign-in-page');
 
   static const String name = 'SignInPageRoute';
 }
 
-/// generated route for [_i3.NotesOverviewPage]
+/// generated route for
+/// [_i3.NotesOverviewPage]
 class NotesOverviewPageRoute extends _i5.PageRouteInfo<void> {
-  const NotesOverviewPageRoute() : super(name, path: '/notes-overview-page');
+  const NotesOverviewPageRoute()
+      : super(NotesOverviewPageRoute.name, path: '/notes-overview-page');
 
   static const String name = 'NotesOverviewPageRoute';
 }
 
-/// generated route for [_i4.NoteFormPage]
+/// generated route for
+/// [_i4.NoteFormPage]
 class NoteFormPageRoute extends _i5.PageRouteInfo<NoteFormPageRouteArgs> {
   NoteFormPageRoute({_i6.Key? key, required _i7.Note? editedNote})
-      : super(name,
+      : super(NoteFormPageRoute.name,
             path: '/note-form-page',
             args: NoteFormPageRouteArgs(key: key, editedNote: editedNote));
 
@@ -90,4 +97,9 @@ class NoteFormPageRouteArgs {
   final _i6.Key? key;
 
   final _i7.Note? editedNote;
+
+  @override
+  String toString() {
+    return 'NoteFormPageRouteArgs{key: $key, editedNote: $editedNote}';
+  }
 }

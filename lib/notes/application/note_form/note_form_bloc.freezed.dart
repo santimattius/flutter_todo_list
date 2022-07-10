@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'note_form_bloc.dart';
@@ -11,43 +12,7 @@ part of 'note_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$NoteFormEventTearOff {
-  const _$NoteFormEventTearOff();
-
-  _Initialized initialized(Option<Note> initialNoteOption) {
-    return _Initialized(
-      initialNoteOption,
-    );
-  }
-
-  _BodyChanged bodyChanged(String bodyStr) {
-    return _BodyChanged(
-      bodyStr,
-    );
-  }
-
-  _ColorChanged colorChanged(Color color) {
-    return _ColorChanged(
-      color,
-    );
-  }
-
-  _TodosChanged todosChanged(KtList<TodoItemPrimitive> todos) {
-    return _TodosChanged(
-      todos,
-    );
-  }
-
-  _Saved saved() {
-    return const _Saved();
-  }
-}
-
-/// @nodoc
-const $NoteFormEvent = _$NoteFormEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$NoteFormEvent {
@@ -127,28 +92,29 @@ class _$NoteFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitializedCopyWith<$Res> {
-  factory _$InitializedCopyWith(
-          _Initialized value, $Res Function(_Initialized) then) =
-      __$InitializedCopyWithImpl<$Res>;
+abstract class _$$_InitializedCopyWith<$Res> {
+  factory _$$_InitializedCopyWith(
+          _$_Initialized value, $Res Function(_$_Initialized) then) =
+      __$$_InitializedCopyWithImpl<$Res>;
   $Res call({Option<Note> initialNoteOption});
 }
 
 /// @nodoc
-class __$InitializedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
-    implements _$InitializedCopyWith<$Res> {
-  __$InitializedCopyWithImpl(
-      _Initialized _value, $Res Function(_Initialized) _then)
-      : super(_value, (v) => _then(v as _Initialized));
+class __$$_InitializedCopyWithImpl<$Res>
+    extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$$_InitializedCopyWith<$Res> {
+  __$$_InitializedCopyWithImpl(
+      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+      : super(_value, (v) => _then(v as _$_Initialized));
 
   @override
-  _Initialized get _value => super._value as _Initialized;
+  _$_Initialized get _value => super._value as _$_Initialized;
 
   @override
   $Res call({
     Object? initialNoteOption = freezed,
   }) {
-    return _then(_Initialized(
+    return _then(_$_Initialized(
       initialNoteOption == freezed
           ? _value.initialNoteOption
           : initialNoteOption // ignore: cast_nullable_to_non_nullable
@@ -174,18 +140,19 @@ class _$_Initialized implements _Initialized {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Initialized &&
-            (identical(other.initialNoteOption, initialNoteOption) ||
-                other.initialNoteOption == initialNoteOption));
+            other is _$_Initialized &&
+            const DeepCollectionEquality()
+                .equals(other.initialNoteOption, initialNoteOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialNoteOption);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(initialNoteOption));
 
   @JsonKey(ignore: true)
   @override
-  _$InitializedCopyWith<_Initialized> get copyWith =>
-      __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
+  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -269,37 +236,39 @@ class _$_Initialized implements _Initialized {
 }
 
 abstract class _Initialized implements NoteFormEvent {
-  const factory _Initialized(Option<Note> initialNoteOption) = _$_Initialized;
+  const factory _Initialized(final Option<Note> initialNoteOption) =
+      _$_Initialized;
 
-  Option<Note> get initialNoteOption;
+  Option<Note> get initialNoteOption => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$InitializedCopyWith<_Initialized> get copyWith =>
+  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$BodyChangedCopyWith<$Res> {
-  factory _$BodyChangedCopyWith(
-          _BodyChanged value, $Res Function(_BodyChanged) then) =
-      __$BodyChangedCopyWithImpl<$Res>;
+abstract class _$$_BodyChangedCopyWith<$Res> {
+  factory _$$_BodyChangedCopyWith(
+          _$_BodyChanged value, $Res Function(_$_BodyChanged) then) =
+      __$$_BodyChangedCopyWithImpl<$Res>;
   $Res call({String bodyStr});
 }
 
 /// @nodoc
-class __$BodyChangedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
-    implements _$BodyChangedCopyWith<$Res> {
-  __$BodyChangedCopyWithImpl(
-      _BodyChanged _value, $Res Function(_BodyChanged) _then)
-      : super(_value, (v) => _then(v as _BodyChanged));
+class __$$_BodyChangedCopyWithImpl<$Res>
+    extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$$_BodyChangedCopyWith<$Res> {
+  __$$_BodyChangedCopyWithImpl(
+      _$_BodyChanged _value, $Res Function(_$_BodyChanged) _then)
+      : super(_value, (v) => _then(v as _$_BodyChanged));
 
   @override
-  _BodyChanged get _value => super._value as _BodyChanged;
+  _$_BodyChanged get _value => super._value as _$_BodyChanged;
 
   @override
   $Res call({
     Object? bodyStr = freezed,
   }) {
-    return _then(_BodyChanged(
+    return _then(_$_BodyChanged(
       bodyStr == freezed
           ? _value.bodyStr
           : bodyStr // ignore: cast_nullable_to_non_nullable
@@ -325,17 +294,18 @@ class _$_BodyChanged implements _BodyChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BodyChanged &&
-            (identical(other.bodyStr, bodyStr) || other.bodyStr == bodyStr));
+            other is _$_BodyChanged &&
+            const DeepCollectionEquality().equals(other.bodyStr, bodyStr));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bodyStr);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(bodyStr));
 
   @JsonKey(ignore: true)
   @override
-  _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
-      __$BodyChangedCopyWithImpl<_BodyChanged>(this, _$identity);
+  _$$_BodyChangedCopyWith<_$_BodyChanged> get copyWith =>
+      __$$_BodyChangedCopyWithImpl<_$_BodyChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -419,38 +389,38 @@ class _$_BodyChanged implements _BodyChanged {
 }
 
 abstract class _BodyChanged implements NoteFormEvent {
-  const factory _BodyChanged(String bodyStr) = _$_BodyChanged;
+  const factory _BodyChanged(final String bodyStr) = _$_BodyChanged;
 
-  String get bodyStr;
+  String get bodyStr => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
+  _$$_BodyChangedCopyWith<_$_BodyChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ColorChangedCopyWith<$Res> {
-  factory _$ColorChangedCopyWith(
-          _ColorChanged value, $Res Function(_ColorChanged) then) =
-      __$ColorChangedCopyWithImpl<$Res>;
+abstract class _$$_ColorChangedCopyWith<$Res> {
+  factory _$$_ColorChangedCopyWith(
+          _$_ColorChanged value, $Res Function(_$_ColorChanged) then) =
+      __$$_ColorChangedCopyWithImpl<$Res>;
   $Res call({Color color});
 }
 
 /// @nodoc
-class __$ColorChangedCopyWithImpl<$Res>
+class __$$_ColorChangedCopyWithImpl<$Res>
     extends _$NoteFormEventCopyWithImpl<$Res>
-    implements _$ColorChangedCopyWith<$Res> {
-  __$ColorChangedCopyWithImpl(
-      _ColorChanged _value, $Res Function(_ColorChanged) _then)
-      : super(_value, (v) => _then(v as _ColorChanged));
+    implements _$$_ColorChangedCopyWith<$Res> {
+  __$$_ColorChangedCopyWithImpl(
+      _$_ColorChanged _value, $Res Function(_$_ColorChanged) _then)
+      : super(_value, (v) => _then(v as _$_ColorChanged));
 
   @override
-  _ColorChanged get _value => super._value as _ColorChanged;
+  _$_ColorChanged get _value => super._value as _$_ColorChanged;
 
   @override
   $Res call({
     Object? color = freezed,
   }) {
-    return _then(_ColorChanged(
+    return _then(_$_ColorChanged(
       color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -476,17 +446,18 @@ class _$_ColorChanged implements _ColorChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ColorChanged &&
-            (identical(other.color, color) || other.color == color));
+            other is _$_ColorChanged &&
+            const DeepCollectionEquality().equals(other.color, color));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, color);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
 
   @JsonKey(ignore: true)
   @override
-  _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
-      __$ColorChangedCopyWithImpl<_ColorChanged>(this, _$identity);
+  _$$_ColorChangedCopyWith<_$_ColorChanged> get copyWith =>
+      __$$_ColorChangedCopyWithImpl<_$_ColorChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -570,38 +541,38 @@ class _$_ColorChanged implements _ColorChanged {
 }
 
 abstract class _ColorChanged implements NoteFormEvent {
-  const factory _ColorChanged(Color color) = _$_ColorChanged;
+  const factory _ColorChanged(final Color color) = _$_ColorChanged;
 
-  Color get color;
+  Color get color => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
+  _$$_ColorChangedCopyWith<_$_ColorChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$TodosChangedCopyWith<$Res> {
-  factory _$TodosChangedCopyWith(
-          _TodosChanged value, $Res Function(_TodosChanged) then) =
-      __$TodosChangedCopyWithImpl<$Res>;
+abstract class _$$_TodosChangedCopyWith<$Res> {
+  factory _$$_TodosChangedCopyWith(
+          _$_TodosChanged value, $Res Function(_$_TodosChanged) then) =
+      __$$_TodosChangedCopyWithImpl<$Res>;
   $Res call({KtList<TodoItemPrimitive> todos});
 }
 
 /// @nodoc
-class __$TodosChangedCopyWithImpl<$Res>
+class __$$_TodosChangedCopyWithImpl<$Res>
     extends _$NoteFormEventCopyWithImpl<$Res>
-    implements _$TodosChangedCopyWith<$Res> {
-  __$TodosChangedCopyWithImpl(
-      _TodosChanged _value, $Res Function(_TodosChanged) _then)
-      : super(_value, (v) => _then(v as _TodosChanged));
+    implements _$$_TodosChangedCopyWith<$Res> {
+  __$$_TodosChangedCopyWithImpl(
+      _$_TodosChanged _value, $Res Function(_$_TodosChanged) _then)
+      : super(_value, (v) => _then(v as _$_TodosChanged));
 
   @override
-  _TodosChanged get _value => super._value as _TodosChanged;
+  _$_TodosChanged get _value => super._value as _$_TodosChanged;
 
   @override
   $Res call({
     Object? todos = freezed,
   }) {
-    return _then(_TodosChanged(
+    return _then(_$_TodosChanged(
       todos == freezed
           ? _value.todos
           : todos // ignore: cast_nullable_to_non_nullable
@@ -627,17 +598,18 @@ class _$_TodosChanged implements _TodosChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TodosChanged &&
-            (identical(other.todos, todos) || other.todos == todos));
+            other is _$_TodosChanged &&
+            const DeepCollectionEquality().equals(other.todos, todos));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, todos);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(todos));
 
   @JsonKey(ignore: true)
   @override
-  _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
-      __$TodosChangedCopyWithImpl<_TodosChanged>(this, _$identity);
+  _$$_TodosChangedCopyWith<_$_TodosChanged> get copyWith =>
+      __$$_TodosChangedCopyWithImpl<_$_TodosChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -721,29 +693,29 @@ class _$_TodosChanged implements _TodosChanged {
 }
 
 abstract class _TodosChanged implements NoteFormEvent {
-  const factory _TodosChanged(KtList<TodoItemPrimitive> todos) =
+  const factory _TodosChanged(final KtList<TodoItemPrimitive> todos) =
       _$_TodosChanged;
 
-  KtList<TodoItemPrimitive> get todos;
+  KtList<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
+  _$$_TodosChangedCopyWith<_$_TodosChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$SavedCopyWith<$Res> {
-  factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
-      __$SavedCopyWithImpl<$Res>;
+abstract class _$$_SavedCopyWith<$Res> {
+  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
+      __$$_SavedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SavedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
-    implements _$SavedCopyWith<$Res> {
-  __$SavedCopyWithImpl(_Saved _value, $Res Function(_Saved) _then)
-      : super(_value, (v) => _then(v as _Saved));
+class __$$_SavedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$$_SavedCopyWith<$Res> {
+  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+      : super(_value, (v) => _then(v as _$_Saved));
 
   @override
-  _Saved get _value => super._value as _Saved;
+  _$_Saved get _value => super._value as _$_Saved;
 }
 
 /// @nodoc
@@ -759,7 +731,7 @@ class _$_Saved implements _Saved {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Saved);
+        (other.runtimeType == runtimeType && other is _$_Saved);
   }
 
   @override
@@ -851,29 +823,6 @@ abstract class _Saved implements NoteFormEvent {
 }
 
 /// @nodoc
-class _$NoteFormStateTearOff {
-  const _$NoteFormStateTearOff();
-
-  _NoteFormState call(
-      {required Note note,
-      required bool showErrorMessages,
-      required bool isEditing,
-      required bool isSaving,
-      required Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption}) {
-    return _NoteFormState(
-      note: note,
-      showErrorMessages: showErrorMessages,
-      isEditing: isEditing,
-      isSaving: isSaving,
-      saveFailureOrSuccessOption: saveFailureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $NoteFormState = _$NoteFormStateTearOff();
-
-/// @nodoc
 mixin _$NoteFormState {
   Note get note => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
@@ -952,11 +901,11 @@ class _$NoteFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$NoteFormStateCopyWith<$Res>
+abstract class _$$_NoteFormStateCopyWith<$Res>
     implements $NoteFormStateCopyWith<$Res> {
-  factory _$NoteFormStateCopyWith(
-          _NoteFormState value, $Res Function(_NoteFormState) then) =
-      __$NoteFormStateCopyWithImpl<$Res>;
+  factory _$$_NoteFormStateCopyWith(
+          _$_NoteFormState value, $Res Function(_$_NoteFormState) then) =
+      __$$_NoteFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {Note note,
@@ -970,15 +919,15 @@ abstract class _$NoteFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$NoteFormStateCopyWithImpl<$Res>
+class __$$_NoteFormStateCopyWithImpl<$Res>
     extends _$NoteFormStateCopyWithImpl<$Res>
-    implements _$NoteFormStateCopyWith<$Res> {
-  __$NoteFormStateCopyWithImpl(
-      _NoteFormState _value, $Res Function(_NoteFormState) _then)
-      : super(_value, (v) => _then(v as _NoteFormState));
+    implements _$$_NoteFormStateCopyWith<$Res> {
+  __$$_NoteFormStateCopyWithImpl(
+      _$_NoteFormState _value, $Res Function(_$_NoteFormState) _then)
+      : super(_value, (v) => _then(v as _$_NoteFormState));
 
   @override
-  _NoteFormState get _value => super._value as _NoteFormState;
+  _$_NoteFormState get _value => super._value as _$_NoteFormState;
 
   @override
   $Res call({
@@ -988,7 +937,7 @@ class __$NoteFormStateCopyWithImpl<$Res>
     Object? isSaving = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
-    return _then(_NoteFormState(
+    return _then(_$_NoteFormState(
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -1043,51 +992,53 @@ class _$_NoteFormState implements _NoteFormState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NoteFormState &&
-            (identical(other.note, note) || other.note == note) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                other.showErrorMessages == showErrorMessages) &&
-            (identical(other.isEditing, isEditing) ||
-                other.isEditing == isEditing) &&
-            (identical(other.isSaving, isSaving) ||
-                other.isSaving == isSaving) &&
-            (identical(other.saveFailureOrSuccessOption,
-                    saveFailureOrSuccessOption) ||
-                other.saveFailureOrSuccessOption ==
-                    saveFailureOrSuccessOption));
+            other is _$_NoteFormState &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality().equals(other.isEditing, isEditing) &&
+            const DeepCollectionEquality().equals(other.isSaving, isSaving) &&
+            const DeepCollectionEquality().equals(
+                other.saveFailureOrSuccessOption, saveFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, note, showErrorMessages,
-      isEditing, isSaving, saveFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isEditing),
+      const DeepCollectionEquality().hash(isSaving),
+      const DeepCollectionEquality().hash(saveFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
-  _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>
-      __$NoteFormStateCopyWithImpl<_NoteFormState>(this, _$identity);
+  _$$_NoteFormStateCopyWith<_$_NoteFormState> get copyWith =>
+      __$$_NoteFormStateCopyWithImpl<_$_NoteFormState>(this, _$identity);
 }
 
 abstract class _NoteFormState implements NoteFormState {
   const factory _NoteFormState(
-      {required Note note,
-      required bool showErrorMessages,
-      required bool isEditing,
-      required bool isSaving,
-      required Option<Either<NoteFailure, Unit>>
+      {required final Note note,
+      required final bool showErrorMessages,
+      required final bool isEditing,
+      required final bool isSaving,
+      required final Option<Either<NoteFailure, Unit>>
           saveFailureOrSuccessOption}) = _$_NoteFormState;
 
   @override
-  Note get note;
+  Note get note => throw _privateConstructorUsedError;
   @override
-  bool get showErrorMessages;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
-  bool get isEditing;
+  bool get isEditing => throw _privateConstructorUsedError;
   @override
-  bool get isSaving;
+  bool get isSaving => throw _privateConstructorUsedError;
   @override
-  Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption;
+  Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NoteFormStateCopyWith<_NoteFormState> get copyWith =>
+  _$$_NoteFormStateCopyWith<_$_NoteFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }

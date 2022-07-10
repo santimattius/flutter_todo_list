@@ -1,5 +1,5 @@
-import 'package:arch_flutter_ddd/notes/application/note_form/note_form_bloc.dart';
-import 'package:arch_flutter_ddd/notes/domain/value_objects.dart';
+import 'package:flutter_todo_list/notes/application/note_form/note_form_bloc.dart';
+import 'package:flutter_todo_list/notes/domain/value_objects.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -19,7 +19,7 @@ class BodyField extends HookWidget {
         textEditingController.text = state.note.body.getOrCrash();
       },
       child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(4),
           child: TextFormField(
             controller: textEditingController,
             decoration: const InputDecoration(

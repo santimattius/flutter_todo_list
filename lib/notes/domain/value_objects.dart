@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:arch_flutter_ddd/shared/domain/failures.dart';
-import 'package:arch_flutter_ddd/shared/domain/value_objects.dart';
-import 'package:arch_flutter_ddd/shared/domain/value_transformers.dart';
-import 'package:arch_flutter_ddd/shared/domain/value_validators.dart';
+import 'package:flutter_todo_list/shared/domain/failures.dart';
+import 'package:flutter_todo_list/shared/domain/value_objects.dart';
+import 'package:flutter_todo_list/shared/domain/value_transformers.dart';
+import 'package:flutter_todo_list/shared/domain/value_validators.dart';
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
 

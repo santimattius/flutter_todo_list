@@ -4,9 +4,9 @@ import 'package:kt_dart/collection.dart';
 import 'failures.dart';
 
 Either<ValueFailure<String>, String> validateMaxStringLength(
-    String input,
-    int maxLength,
-    ) {
+  String input,
+  int maxLength,
+) {
   if (input.length <= maxLength) {
     return right(input);
   } else {
@@ -33,9 +33,9 @@ Either<ValueFailure<String>, String> validateSingleLine(String input) {
 }
 
 Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
-    KtList<T> input,
-    int maxLength,
-    ) {
+  KtList<T> input,
+  int maxLength,
+) {
   if (input.size <= maxLength) {
     return right(input);
   } else {
@@ -46,18 +46,16 @@ Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
   }
 }
 
-
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   // Maybe not the most robust way of email validation but it's good enough
   const emailRegex =
-  r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+      r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
   } else {
     return left(ValueFailure.invalidEmail(failedValue: input));
   }
 }
-
 
 Either<ValueFailure<String>, String> validatePassword(String input) {
   // You can also add some advanced password checks (uppercase/lowercase, at least 1 number, ...)

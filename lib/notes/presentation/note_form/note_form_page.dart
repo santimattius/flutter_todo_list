@@ -1,12 +1,12 @@
-import 'package:arch_flutter_ddd/injection.dart';
-import 'package:arch_flutter_ddd/notes/application/note_form/note_form_bloc.dart';
-import 'package:arch_flutter_ddd/notes/domain/note.dart';
-import 'package:arch_flutter_ddd/notes/presentation/misc/todo_item_presentation_classes.dart';
-import 'package:arch_flutter_ddd/notes/presentation/note_form/widgets/add_todo_title_widget.dart';
-import 'package:arch_flutter_ddd/notes/presentation/note_form/widgets/body_field_widget.dart';
-import 'package:arch_flutter_ddd/notes/presentation/note_form/widgets/color_field_widget.dart';
-import 'package:arch_flutter_ddd/notes/presentation/note_form/widgets/todo_list_widget.dart';
-import 'package:arch_flutter_ddd/routes/app_router.gr.dart';
+import 'package:flutter_todo_list/injection.dart';
+import 'package:flutter_todo_list/notes/application/note_form/note_form_bloc.dart';
+import 'package:flutter_todo_list/notes/domain/note.dart';
+import 'package:flutter_todo_list/notes/presentation/misc/todo_item_presentation_classes.dart';
+import 'package:flutter_todo_list/notes/presentation/note_form/widgets/add_todo_title_widget.dart';
+import 'package:flutter_todo_list/notes/presentation/note_form/widgets/body_field_widget.dart';
+import 'package:flutter_todo_list/notes/presentation/note_form/widgets/color_field_widget.dart';
+import 'package:flutter_todo_list/notes/presentation/note_form/widgets/todo_list_widget.dart';
+import 'package:flutter_todo_list/routes/app_router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -145,11 +145,11 @@ class NoteFormPageScaffold extends StatelessWidget {
                   : AutovalidateMode.disabled,
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
-                    const BodyField(),
-                    const ColorField(),
-                    const TodoList(),
-                    const AddTodoTile(),
+                  children: const [
+                    BodyField(),
+                    ColorField(),
+                    TodoList(),
+                    AddTodoTile(),
                   ],
                 ),
               ),

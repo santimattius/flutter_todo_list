@@ -6,19 +6,19 @@ The following describes the architecture of the app, the structure of the projec
 
 <p align="center">
 
-  <img src="https://github.com/santimattius/arch_flutter_ddd/blob/master/art/screenshot_sign_in.png" width="200"/>
+  <img src="https://github.com/santimattius/flutter_todo_list/blob/master/art/screenshot_sign_in.png" width="200"/>
   
 </p>
 
 # Architecture 
 ## Bounded context
 <p align="left">
-  <img src="https://github.com/santimattius/arch_flutter_ddd/blob/master/art/bounded_context_ddd.png?raw=true" alt="Project packages"/>
+  <img src="https://github.com/santimattius/flutter_todo_list/blob/master/art/bounded_context_ddd.png?raw=true" alt="Project packages"/>
 </p>
 
 ## Flow
 <p align="left">
-  <img src="https://github.com/santimattius/arch_flutter_ddd/blob/master/art/arch_flow_ddd.png?raw=true" alt="Project packages"/>
+  <img src="https://github.com/santimattius/flutter_todo_list/blob/master/art/arch_flow_ddd.png?raw=true" alt="Project packages"/>
 </p>
 
 ## Packages
