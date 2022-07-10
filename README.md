@@ -1,6 +1,6 @@
 # Flutter Todo List
 
-Flutter app using Domain Driven Design (DDD)
+Flutter app using Domain Driven Design (DDD). Series sample app **Flutter Firebase & DDD** by **Reso Coder**
 
 The following describes the architecture of the app, the structure of the project and the dependencies used.
 
