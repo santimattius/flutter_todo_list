@@ -1,17 +1,19 @@
 import 'dart:async';
 
+import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_todo_list/notes/domain/i_note_repository.dart';
 import 'package:flutter_todo_list/notes/domain/note.dart';
 import 'package:flutter_todo_list/notes/domain/note_failure.dart';
-import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-part 'note_watcher_event.dart';
-part 'note_watcher_state.dart';
 part 'note_watcher_bloc.freezed.dart';
+
+part 'note_watcher_event.dart';
+
+part 'note_watcher_state.dart';
 
 @injectable
 class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
@@ -21,9 +23,17 @@ class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
       _noteStreamSubscription;
 
   NoteWatcherBloc(this._noteRepository)
-      : super(const NoteWatcherState.initial());
+      : super(const NoteWatcherState.initial()) {
+    on<NoteWatcherEvent>(
+      (event, emit) => emit.onEach<NoteWatcherState>(
+        mapEventToState(event),
+        onData: (state) {
+          emit(state);
+        },
+      ),
+    );
+  }
 
-  @override
   Stream<NoteWatcherState> mapEventToState(
     NoteWatcherEvent event,
   ) async* {

@@ -19,7 +19,7 @@ class BodyField extends HookWidget {
         textEditingController.text = state.note.body.getOrCrash();
       },
       child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(4),
           child: TextFormField(
             controller: textEditingController,
             decoration: const InputDecoration(

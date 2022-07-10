@@ -145,11 +145,11 @@ class NoteFormPageScaffold extends StatelessWidget {
                   : AutovalidateMode.disabled,
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
-                    const BodyField(),
-                    const ColorField(),
-                    const TodoList(),
-                    const AddTodoTile(),
+                  children: const [
+                    BodyField(),
+                    ColorField(),
+                    TodoList(),
+                    AddTodoTile(),
                   ],
                 ),
               ),

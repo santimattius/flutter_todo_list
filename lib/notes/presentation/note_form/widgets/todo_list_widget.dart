@@ -1,11 +1,11 @@
-import 'package:flutter_todo_list/notes/application/note_form/note_form_bloc.dart';
-import 'package:flutter_todo_list/notes/domain/value_objects.dart';
-import 'package:flutter_todo_list/notes/presentation/misc/build_context.dart';
-import 'package:flutter_todo_list/notes/presentation/misc/todo_item_presentation_classes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_todo_list/notes/application/note_form/note_form_bloc.dart';
+import 'package:flutter_todo_list/notes/domain/value_objects.dart';
+import 'package:flutter_todo_list/notes/presentation/misc/build_context.dart';
+import 'package:flutter_todo_list/notes/presentation/misc/todo_item_presentation_classes.dart';
 import 'package:implicitly_animated_reorderable_list/implicitly_animated_reorderable_list.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:provider/provider.dart';
@@ -84,20 +84,31 @@ class TodoTile extends HookWidget {
     final textEditingController = useTextEditingController(text: todo.name);
 
     return Slidable(
-      actionPane: const SlidableDrawerActionPane(),
-      actionExtentRatio: 0.15,
-      secondaryActions: [
-        IconSlideAction(
-          caption: 'Delete',
-          icon: Icons.delete,
-          color: Colors.red,
-          onTap: () {
-            context.formTodos = context.formTodos.minusElement(todo);
-            BlocProvider.of<NoteFormBloc>(context)
-                .add(NoteFormEvent.todosChanged(context.formTodos));
-          },
-        ),
-      ],
+      key: const ValueKey(0),
+      // The start action pane is the one at the left or the top side.
+      startActionPane: ActionPane(
+        // A motion is a widget used to control how the pane animates.
+        motion: const ScrollMotion(),
+
+        // A pane can dismiss the Slidable.
+        dismissible: DismissiblePane(onDismissed: () {}),
+
+        // All actions are defined in the children parameter.
+        children: [
+          // A SlidableAction can have an icon and/or a label.
+          SlidableAction(
+            onPressed: (context) {
+              context.formTodos = context.formTodos.minusElement(todo);
+              BlocProvider.of<NoteFormBloc>(context)
+                  .add(NoteFormEvent.todosChanged(context.formTodos));
+            },
+            backgroundColor: const Color(0xFFFE4A49),
+            foregroundColor: Colors.white,
+            icon: Icons.delete,
+            label: 'Delete',
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         child: Material(

@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_todo_list/notes/domain/i_note_repository.dart';
 import 'package:flutter_todo_list/notes/domain/note.dart';
 import 'package:flutter_todo_list/notes/domain/note_failure.dart';
 import 'package:flutter_todo_list/notes/domain/value_objects.dart';
 import 'package:flutter_todo_list/notes/presentation/misc/todo_item_presentation_classes.dart';
-import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
@@ -23,9 +23,17 @@ part 'note_form_state.dart';
 class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
   final INoteRepository _noteRepository;
 
-  NoteFormBloc(this._noteRepository) : super(NoteFormState.initial());
+  NoteFormBloc(this._noteRepository) : super(NoteFormState.initial()) {
+    on<NoteFormEvent>(
+      (event, emit) => emit.onEach<NoteFormState>(
+        mapEventToState(event),
+        onData: (state) {
+          emit(state);
+        },
+      ),
+    );
+  }
 
-  @override
   Stream<NoteFormState> mapEventToState(
     NoteFormEvent event,
   ) async* {
